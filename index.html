@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAGI-Travel</title>
+    <link rel="stylesheet" href="css style/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <header >
+        <div class="Logo">
+            <img src="images/Logo.png" alt="Logo" width="200px">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#top">Acueil</a></li>
+                <li><a href="#Destinations">Destinations</a></li>
+                <li><a href="#circuits">Circuits</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="top" class="accueil">
+        <div class="accueil-content">
+            <h1>Organisez votre voyage sur mesure.</h1>
+            <p>Le site IAGI Travel vous permet de faire le tour du monde à des prix uniques !</p>
+            <p class="green-background">Un conseiller est en ligne  </p>
+        </div>
+        <div class="background-image"></div>
+    </section>
+    <section class="carousel" id="Destinations" aria-label="Gallery">
+        <h1 class="dest_title">Nos Destinations</h1>
+        <ol class="carousel__viewport">
+            <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+                <div class="carousel__snapper">
+                    <a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
+                    <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+                </div>
+                <img src="images/slide0.jpg" alt="Destination 1">
+            </li>
+            <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+                <div class="carousel__snapper"></div>
+                <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
+                <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
+                <img src="images/slide1.jpg" alt="Destination 1">
+            </li>
+            <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+                <div class="carousel__snapper"></div>
+                <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
+                <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
+                <img src="images/slide2.jpg" alt="Destination 1">
+            </li>
+            <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+                <div class="carousel__snapper"></div>
+                <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
+                <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
+                <img src="images/slide4.jpg" alt="Destination 1">
+            </li>
+        </ol>
+        <aside class="carousel__navigation">
+            <ol class="carousel__navigation-list">
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide1" class="carousel__navigation-button">Go to slide 1</a>
+                </li>
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide2" class="carousel__navigation-button">Go to slide 2</a>
+                </li>
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide3" class="carousel__navigation-button">Go to slide 3</a>
+                </li>
+                <li class="carousel__navigation-item">
+                    <a href="#carousel__slide4" class="carousel__navigation-button">Go to slide 4</a>
+                </li>
+            </ol>
+        </aside>
+    </section>
+    <section id="circuits">
+        <h1 id="h1circuit" >Circuits </h1>
+        <div class="row">
+            <div class="column">
+                <img src="images/c1.png" alt="Logo 1">
+                <h2>Panifier</h2>
+                <p>Confiez-nous vos rêves d'évasion: en famille ou entre amis.Nous trouverons qui comblera vos attentes.</p>
+            </div>
+            <div class="column">
+                <img src="images/c2.png" alt="Logo 2">
+                <h2>Organiser</h2>
+                <p>Bénéficiez de l'expertise de nos spécialistes de chaque destination, ils vous accompagnent dans la réalisation de votre voyage.</p>
+            </div>
+            <div class="column">
+                <img src="images/c3.png" alt="Logo 3">
+                <h2>Voyager</h2>
+                <p>Nous nous chargerons d'assurer votre sécurité et de veiller à votre pleine sérénité tout au long de votre voyage.</p>
+            </div>
+        </div>
+        <div class="row gray-row" id="circuits">
+            <div class="block">
+                <div class="text">
+                    <h2>Parter en famille</h2>
+                    <hr/>
+                    <p>Offrez le meilleur à ceux qui vous aimez et partagez ces moments fabuleux! .</p>
+                </div>
+                <img src="images/a1.jpg" alt="Image 1">
+            </div>
+            <div class="block">
+                <div class="text">
+                    <h2>Envie de s'evader</h2>
+                    <hr/>
+                    <p>Parfois un peu d'évasion serait le bienvenue et ferait le plus grand bien!</p>
+                </div>
+                <img src="images/a2.jpg" alt="Image 2">
+            </div>
+        </div>
+    </section>
+    <section id="Contact">
+        <div class="contact-content">
+            <h2>Contactez-nous</h2>
+            <hr/>
+            <p>Si vous avez des questions ou des commentaires, n'hésitez pas à nous contacter en utilisant le formulaire ci-dessous.</p>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="nom">Votre Nom:</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Votre Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit"><h4>Envoyer</h4></button>
+            </form>
+        </div>
+
+    </section>
+    <footer class="footer">
+        <h1 class="footer-title">IAGI-Travel</h1>
+        <p class="copyright">&copy; 2023-2024, Tous droits réservés</p>
+    </footer>
+    
+    
+</body>
+</html>

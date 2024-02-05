@@ -1,0 +1,661 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*Cela permet de s'assurer que la taille totale de l'élément reste constante même si vous ajoutez une bordure ou du rembourrage.*/
+}
+body
+{
+    font-family:'Lato',sans_serif;
+}
+.section {
+  margin-top: 50px; 
+}
+header{
+    height:100;
+    background:rgba(0, 0, 0, 0.742);/*Cela signifie que l'en-tête aura une couleur de fond noire partiellement transparente.*/
+    display:flex;/* Cette règle indique que l'en-tête utilise le modèle de mise en page Flexbox. Cela permet de créer des mises en page flexibles et réactives.*/
+    justify-content: space-around;
+    align-items: center;
+    position:sticky;
+    top:0;
+    z-index: 1000;/*Un élément avec un "z-index" plus élevé apparaîtra au-dessus des éléments avec un "z-index" plus bas.*/
+}
+
+ul{
+    display:flex;
+    list-style-type: none;
+}
+ul li a{
+    padding:0 30px;
+    text-decoration: none;
+    color: white;
+    display:inline-block;
+}
+
+
+li a::after{
+    content:'';
+    display: block;
+    height:4px;
+    width:0;
+    background:#0DB4F3;
+    transition:all .5s;
+}
+li a:hover::after{
+    width:100%;
+}
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto; /* Permet au conteneur de s'adapter au contenu */
+    }
+    ul {
+        flex-direction: column;
+    }
+    ul li a {
+        padding: 10px; /* Espacement entre les éléments de la liste */
+        text-align: center; /* Centrer le texte */
+        width: 100%; /* Remplir la largeur du conteneur */
+    }
+
+}
+.accueil {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 400px;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.accueil .background-image {
+    background-image: url('../images/main.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.accueil-content {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    text-align: left; 
+}
+
+.accueil-content h1 {
+    font-size: 50px;
+    margin: 0;
+}
+
+.accueil-content p {
+    font-size: 16px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.green-background {
+    display: inline-block;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin:2px;
+    padding:6px;
+}
+
+@media (max-width: 768px) {
+    .accueil-content h1  {
+        font-size: 23px; 
+    }
+
+    .accueil-content p {
+        font-size: 12px; 
+        margin-left: 10px;
+    }
+}
+.dest_title{
+    text-align: center; /* Centrez le texte */
+    font-size: 34px; /* Taille du texte */ 
+    color: #03a5e0; /* Couleur du texte */
+    position: absolute;
+    margin: 0 auto;
+    left: 0; 
+    right: 0;
+    top:38px;
+}
+@media (min-width: 600px) and (max-width: 900px) {
+    .dest_title{
+        font-size:28px; 
+        top: 18px;
+    }
+}
+@media (min-width: 421px) and (max-width: 620px) {
+    .dest_title{
+        font-size:23px; 
+        top: 10px;
+    }
+}
+@media (max-width: 421px) {
+    .dest_title {
+        font-size: 20px; 
+        top: 10px;
+        
+        
+    }
+}
+@keyframes tonext {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+/*À 0% (le début de l'animation), l'élément subit une transformation (transform) pour le déplacer horizontalement vers la droite en utilisant la fonction translateX(100%).
+ Cela signifie que l'élément est déplacé de 100% de sa largeur vers la droite.
+À 100% Cela signifie que l'élément est revenu à sa position initiale.*/
+@keyframes tostart {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes snap {
+    0% {
+        scroll-snap-align: start;
+    }
+    100% {
+        scroll-snap-align: start;
+    }
+}
+/*À 0%, l'animation spécifie que l'élément doit avoir un alignement de défilement (scroll-snap-align) à "start". Cela peut être utilisé en conjonction avec les propriétés de défilement CSS pour créer un comportement de défilement par "snap".
+À 100%, l'alignement de défilement reste à "start".*/
+  
+  * {
+    box-sizing: border-box;
+    scrollbar-color: transparent transparent; /* thumb and track color */
+    scrollbar-width: 0px;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+  }
+  
+  * {
+    -ms-overflow-style: none;
+  }
+  
+  ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .carousel__slide {
+    position: relative;
+    flex: 0 0 50%;
+    width: 50%;
+    margin: 5px;
+    background-color: transparent; /* Suppression de la couleur de fond */
+    display: flex; /*  flex pour aligner le contenu horizontalement */
+    align-items: center; /* Centrer le contenu verticalement */
+   
+}
+
+
+.carousel__slide img {
+    max-width: 100%;
+    max-height: 100%; /* Ajouter cette ligne pour conserver la même hauteur sur toutes les images */
+    object-fit: cover; /* Ajouter cette ligne pour ajuster automatiquement la taille de l'image sans déformer */
+}
+
+  .carousel {
+    position: relative;
+    padding-top: 50%;
+    filter: drop-shadow(0 0 10px #0003);
+    perspective: 100px;
+  }
+  
+  .carousel__viewport {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    margin-top:30px;
+    
+  }
+  
+  .carousel__slide:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-40%,70px);
+    color: #fff;
+    font-size: 2em;
+  }
+  
+  .carousel__snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 75%;
+    scroll-snap-align: center;
+  }
+  
+  @media (hover: hover) {
+    .carousel__snapper {
+      animation-name: tonext, snap;
+      animation-timing-function: ease;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+    }
+  
+    .carousel__slide:last-child .carousel__snapper {
+      animation-name: tostart, snap;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .carousel__snapper {
+      animation-name: none;
+    }
+  }
+  
+  .carousel:hover .carousel__snapper,
+  .carousel:focus-within .carousel__snapper {
+    animation-name: none;
+  }
+  
+  .carousel__navigation {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+  
+  .carousel__navigation-list,
+  .carousel__navigation-item {
+    display: inline-block;
+  }
+  
+  .carousel__navigation-button {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #03a5e0;
+    background-clip: content-box;
+    border: 0.25rem solid transparent;
+    border-radius: 50%;
+    font-size: 0;
+    transition: transform 0.1s;
+    margin: 10px;
+  }
+  
+  .carousel::before,
+  .carousel::after,
+  .carousel__prev,
+  .carousel__next {
+    position: absolute;
+    top: 0;
+    margin-top: 37.5%;
+    width: 4rem;
+    height: 4rem;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    font-size: 0;
+    outline: 0;
+  }
+  
+  .carousel::before,
+  .carousel__prev {
+    left: -1rem;
+  }
+  
+  .carousel::after,
+  .carousel__next {
+    right: -1rem;
+  }
+  @media (max-width:460px)  {
+    .carousel__navigation-button{
+      width: 0.8rem;
+      height: 0.8rem;
+      border: 0.1rem solid transparent;
+      border-radius: 50%;
+      font-size: 0;
+      transition: transform 0.1s;
+      margin-top: 10px;
+    }
+  }
+  /*section circuits
+ /* Styles pour la première ligne de colonnes */
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#h1circuit, .contact-content h2{
+  text-align: center; /* Centrez le texte */
+  font-size: 38px; /* Taille du texte */ 
+  color: #03a5e0; /* Couleur du texte */
+  margin-top: 15px; /* Espace en haut */
+  margin-bottom: 20px; /* Espace en bas */
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  #h1circuit, .contact-content h2 {
+      font-size:32px; 
+      top: 18px;
+  }
+}
+@media (min-width: 380px) and (max-width: 620px) {
+  #h1circuit, .contact-content h2 {
+      font-size:26px; 
+      top: 10px;
+  }
+}
+@media (max-width: 380px) {
+  #h1circuit, .contact-content h2 {
+      font-size: 22px; 
+      top: 10px;   
+  }
+  .row{
+    width: 100%; /* Définissez la largeur maximale à 500px */
+    display: flex;
+    flex-direction: column; /* Alignez-les verticalement */
+  }
+}
+.column {
+  flex-basis: calc(33.33% - 20px); /* Pour 3 colonnes par ligne avec un espace de 20px entre elles */
+  border: 1px solid #000; /* Bordure noire */
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Met le contenu en colonne */
+  text-align: left; /* Aligne le texte à gauche */
+  margin-right:3px;
+  margin-left: 3px;
+}
+.column h2 {
+  font-weight: bold;
+  text-align: left;
+}
+
+.column img {
+  max-width: 100%;
+  align-self: center; /* Centre l'image verticalement */
+}
+.column p {
+  margin-top: 10px; /* Espace en haut de la description */
+}
+
+@media (max-width: 768px) {
+  .column h2  {
+      font-size: 18px; 
+  }
+
+  .column p {
+      font-size: 12px; 
+      margin-left: 2px;
+  }
+  .column img {
+    max-width: 50%;
+    align-self: center; /* Centre l'image verticalement */
+  }
+}
+/* Styles pour la deuxième ligne de blocs gris */
+.gray-row {
+  background-color: #ccc;
+  margin: 20px 10px;
+  padding: 20px;
+}
+
+.block {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  width:49%;
+}
+
+.block img {
+  max-width: 50%;
+  border: none;
+  margin: 4% 2% 4% 0;
+  object-fit: cover;
+}
+
+.text {
+  flex: 1;
+  padding: 2%;
+  margin-top: 5%;
+  text-align: left;
+}
+.block .text hr {
+  margin: 20px 0; /* Espace au-dessus et en dessous du hr */
+}
+@media (min-width:530px) and (max-width: 868px) {
+  .text h2  {
+      font-size: 18px; 
+  }
+
+  .text p {
+      font-size: 12px; 
+      margin-left: 2px;
+  }
+  .block .text hr {
+    margin: 10px 0; /* Espace au-dessus et en dessous du hr */
+  }
+}
+@media (min-width:360px) and (max-width:600px){
+  .text h2  {
+    font-size: 16px; 
+  }
+  .block{
+    width:100%;
+  }
+
+  .text p {
+      font-size: 12px; 
+      margin-left: 2px;
+  }
+  .block .text hr {
+    margin: 6px 0; /* Espace au-dessus et en dessous du hr */
+
+  }
+}
+@media (max-width:360px){
+  .block{
+    width:100%;
+  }
+  .block .text hr {
+    margin: 10px 0; /* Espace au-dessus et en dessous du hr */
+  }
+  .text h2  {
+    font-size: 18px; 
+  }
+  .text p {
+    font-size: 12px; 
+}
+}
+/* Styles pour la section de contact */
+
+.contact-content {
+  max-width:100%;
+  margin: 0 auto;
+  padding: 20px; 
+}
+
+.contact p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+#contact-form {
+  display: flex;
+  padding: 20px 20px;
+
+
+}
+
+.form-group {
+  display: flex;
+  padding: 0px 10px;
+}
+
+label {
+  font-size: 18px;
+  color: #333; 
+  margin:0px 5px; 
+}
+
+input {
+  
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 20px;
+  width: 20%;
+}
+
+button:hover {
+  background-color: #005c8b;
+}
+.contact-content hr {
+  width: 100%; /* Occupe toute la largeur */
+  margin: 20px 0; /* Marge au-dessus et en dessous */
+}
+@media (min-width:650px) and (max-width: 758px) {
+
+  #contact-form{
+      width: 100%; /* Définissez la largeur maximale à 500px */
+      display: flex;
+      flex-direction: column; /* Alignez-les verticalement */
+      padding: 10px 0px;
+  }
+
+  label {
+    font-size: 15px;
+    width: 100px;
+    margin: 10px; 
+  }
+  input{
+    margin: 10px;
+  }
+  button{
+    width: 30%;
+    margin: 10px 150px;
+  }
+  .contact-content p{
+    font-size: 14px;
+  }
+  
+}
+@media  (max-width: 650px) {
+
+  #contact-form{
+      width: 100%; /* Définissez la largeur maximale à 500px */
+      display: flex;
+      flex-direction: column; /* Alignez-les verticalement */
+      padding: 10px 0px;
+  }
+
+  label {
+    font-size: 15px;
+    width: 100px;
+    margin: 10px; 
+  }
+  input{
+    margin: 10px;
+  }
+  button{
+    width: 30%;
+    margin: 10px 180px; 
+  }
+  button h4{
+    font-size:  13px; 
+    text-align: center;
+  }
+  .contact-content p{
+    font-size: 14px;
+  }
+  
+}
+/* Styles de base pour le footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer-title {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.copyright {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Styles pour les écrans plus petits (par exemple, les écrans mobiles) */
+@media (max-width: 768px) {
+  .footer-title {
+      font-size: 20px; /* Réduire la taille du titre */
+  }
+
+  .copyright {
+      font-size: 12px; /* Réduire la taille du copyright */
+  }
+}
+
+
+  
+
+
+
+  
+
+
+
